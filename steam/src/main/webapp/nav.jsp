@@ -6,7 +6,7 @@
     <img src="img/LOGO.png"alt="" class="logo" width="120px"></div>
     <nav>
       <ul>
-        <li><a href="#">login</a></li>
+        <li><a href="login.jsp">login</a></li>
         <li><a href="#">sign-up</a></li>
         접속: 
       </ul>

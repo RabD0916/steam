@@ -6,20 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    
     <title>Small Business - Start Bootstrap Template</title>
-    <!-- Favicon-->
+    
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css">
+ 		<link rel="stylesheet" href="style.css">	
+ 		
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
     	<%@include file="css/js_css.html" %>
   <title>Steam Main Page</title>
 </head>
 
-<body style="background-color: black; color: white;">
+<body style="background-color: black;">
 
 <jsp:include page="nav.jsp"/>  
 
@@ -73,6 +73,6 @@
             <!-- ... (다른 카드들도 동일하게 수정) ... -->
         </div>
     </div>
-<jsp:include page="footer.jsp"/>
+    <jsp:include page="footer.jsp"/>
 </body>
 </html>
