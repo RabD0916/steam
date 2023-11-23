@@ -32,7 +32,7 @@
 	<div data-role="page">
 		<%@include file="nav.jsp"%>
 <div data-role="content"
-    style="height: 650px; width: 1100px; display: flex; align-items: center; 
+    style="height: 800px; width: 1800px; display: flex; align-items: center; 
     background-image: url('img/ilust.gif'); background-size: cover; background-repeat: no-repeat;
     margin: auto;">
 			<!-- 세션에서 가져온 id 값이 null이면 로그인 입력 폼을 실행함 -->
