@@ -14,14 +14,14 @@
 <%@include file="css/js_css.html"%>
 <script type="text/javascript">
  		function check() {
- 			if (document.frm.id.value.length<5) {
+ 			if (document.frm.user_num.value.length<5) {
  				alert("아이디는 5자리 이상.");
- 				document.frm.id.focus();
+ 				document.frm.user_num.focus();
  				return;
  			}
- 			if (document.frm.pwd.value.length<5) {
+ 			if (document.frm.u_pwd.value.length<5) {
  				alert("비번은 5자리 이상.");
- 				document.frm.pwd.focus();
+ 				document.frm.u_pwd.focus();
  				return;
  			}
  			document.frm.submit();
@@ -42,13 +42,13 @@
 				style="border-left-width: 10px; padding-left: -; padding-left: 150px;">
 					<h1>LOGIN</h1>
 	 <p>
-                        <label for="user_id">아이디:
-                        	<input name="id">
+                        <label for="user_num">아이디:
+                        	<input name="user_num">
                         </label>
                     </p>
                     <p>
-                        <label for="user_password">비밀번호:
-                        	<input type="password" name="pwd">
+                        <label for="u_pwd">비밀번호:
+                        	<input type="password" name="u_pwd">
                         </label>
                     </p>
                     <input type="button"  value="로그인" onclick="check()">
