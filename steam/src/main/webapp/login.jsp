@@ -1,99 +1,62 @@
-<%@page contentType="text/html; charset=UTF-8"%>
+<%@ page contentType="text/html; charset=utf-8" %>
 <%
-	/* 세션에서 id값과 MemberLoginServlet.java 서블릿에서 로그인시 세션에 저장한 값을 가져옴.  */
-		String id = (String)session.getAttribute("idKey");
-		String msg = (String)session.getAttribute("msg");
+	  request.setCharacterEncoding("utf-8");
+
+     /*  ① 세션에 저장되어 있는 'idKey' 키 값을 반환. 로그인하지 않았다면 null값 반환. 입력하세요 */
+	 String id = (String)session.getAttribute("idKey");
+     
 %>
-<!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>PhotoBlog</title>
-
-<%@include file="css/js_css.html"%>
+<title>로그인</title>
+<link href="style.css" rel="stylesheet" type="text/css">
 <script type="text/javascript">
- 		function check() {
- 			if (document.frm.user_num.value.length<5) {
- 				alert("아이디는 5자리 이상.");
- 				document.frm.user_num.focus();
- 				return;
- 			}
- 			if (document.frm.u_pwd.value.length<5) {
- 				alert("비번은 5자리 이상.");
- 				document.frm.u_pwd.focus();
- 				return;
- 			}
- 			document.frm.submit();
- 		}
- 	</script>
+	function loginCheck() {
+		if (document.loginFrm.id.value == "") {
+			alert("아이디를 입력해 주세요.");
+			document.loginFrm.id.focus();
+			return;
+		}
+		if (document.loginFrm.pwd.value == "") {
+			alert("비밀번호를 입력해 주세요.");
+			document.loginFrm.pwd.focus();
+			return;
+		}
+		document.loginFrm.submit();
+	}
+</script>
 </head>
-<body style="background-color: black;">
-	<div data-role="page">
-		<%@include file="nav.jsp"%>
-<div data-role="content"
-    style="height: 800px; width: 1800px; display: flex; align-items: center; 
-    background-image: url('img/ilust.gif'); background-size: cover; background-repeat: no-repeat;
-    margin: auto;">
-			<!-- 세션에서 가져온 id 값이 null이면 로그인 입력 폼을 실행함 -->
-			<%if(id==null){ %>
-
-			<form method="post" name="frm" action="pmemberLogin"
-				style="border-left-width: 10px; padding-left: -; padding-left: 150px;">
-					<h1>LOGIN</h1>
-	 <p>
-                        <label for="user_num">아이디:
-                        	<input name="user_num">
-                        </label>
-                    </p>
-                    <p>
-                        <label for="u_pwd">비밀번호:
-                        	<input type="password" name="u_pwd">
-                        </label>
-                    </p>
-                    <input type="button"  value="로그인" onclick="check()">
-                    <input type="button"  value="회원가입" onclick="location.href='pregister.jsp'">
-                </form>
+<body bgcolor="#ffffcc">
+<div align="center"><br/><br/>
+		<%if (id != null) {%>
+		<b><%=id%></b>님 환영 합니다.
+		<p>제한된 기능을 사용 할 수가 있습니다.<p/>
+			<a href="logout.jsp">로그아웃</a>
+			<%} else {%>
+		<form name="loginFrm" method="post" action="loginProc.jsp">
+			<table>
+				<tr>
+					<td align="center" colspan="2"><h4>로그인</h4></td>
+				</tr>
+				<tr>
+					<td>아 이 디</td>
+					<td><input name="id"></td>
+				</tr>
+				<tr>
+					<td>비밀번호</td>
+					<td><input type="password" name="pwd"></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<div align="right">
+							<input type="button" value="로그인" onclick="loginCheck()">&nbsp;
+							<input type="button" value="회원가입" onClick="javascript:location.href='member.jsp'">
+						</div>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<%}%>
 	</div>
-	</div>
-
-
-	 <!-- 로그인 실패시 보이는 메시지 -->
-	<%if(msg!=null){%>
-		<div align="center">
-			<font color="red"><%=msg%></font>
-		</div>
-	<%}%>
-	
-<%}else{%>
-
- <!-- 로그인 성공이라면 회원의 이름과 프로필 사진을 보여줌 -->
-<div class="post_form">
-<table>
-	<tr>
-		<td><div class="box" style="background: #BDBDBD;">
-
-	</div></td>
-	</tr>
-	<tr>
-		<td colspan="2">
-		    <a href="#" onclick="location.href='pupdate.jsp'">회원수정</a>&nbsp;&nbsp;
-			<a href="#" onclick="location.href='logout.jsp'">로그아웃</a>&nbsp;&nbsp;
-		   <a href="#" onclick="alert('준비중입니다');">포토블로그</a>
-		 </td>
-	</tr>
-</table>
-</div>
-<% } %>
-</div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
