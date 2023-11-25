@@ -26,12 +26,12 @@ public class PMemberLoginServlet extends HttpServlet {
 		String url = "login.jsp";
 		
 		/* PMemberMgr의 loginPMember 메서드 호출 */
-		if(pMgr.loginPMember(id, pwd)) {
+		if(pMgr.loginMember(id, pwd)) {
 			/* request 객체에서 session객체를 리턴 받고, session에 idKey 라는 name을 저장 */
 			request.getSession().setAttribute("idKey", id);
 			
 			/* id를 매개변수로 PMemberMgr.java의 getPMember(호출). 빈즈 타입으로 리턴함 */
-			PMemberBean bean = pMgr.getPMember(id);
+			PMemberBean bean = pMgr.getMember(id);
 			
 			/* 세션에 bean이라는 이름으로 bean객체를 저장함 */
 			request.getSession().setAttribute("bean", bean);

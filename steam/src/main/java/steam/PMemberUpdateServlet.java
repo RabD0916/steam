@@ -22,12 +22,12 @@ public class PMemberUpdateServlet extends HttpServlet {
 		PMemberMgr pMgr = new PMemberMgr();
 		
 		/* PMemberMgr.java의 updatePMember() 메서드 호출 */
-		pMgr.updatePMember(request);
+		pMgr.updateMember((PMemberBean)request);
 		
 		HttpSession session = request.getSession();
 		
 		/* session에 저장된 idKey 값을 매개변수로 PMemberMgr.java의 getPMember(호출). 빈즈 타입으로 리턴함 */
-		PMemberBean bean = pMgr.getPMember((String) session.getAttribute("idKey"));
+		PMemberBean bean = pMgr.getMember((String) session.getAttribute("idKey"));
 		
 		/* 수정된 회원 정보를 다시 bean 이름으로 저장 */
 		session.setAttribute("bean", bean);
