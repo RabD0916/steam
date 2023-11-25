@@ -14,7 +14,7 @@
 			return;
 		}
 	/* ① id 중복 체크로 아이디 값과 함께 열리도록. 입력하세요. */
-	url = "idCheck.jsp?id=" +u_id;
+	url = "idCheck.jsp?u_id=" +u_id;
 		
 	
 		window.open(url, "IDCheck", "width=300,height=150");	}
