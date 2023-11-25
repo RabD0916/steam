@@ -7,16 +7,16 @@
 <%
 	  request.setCharacterEncoding("utf-8");
 
-	  String id = request.getParameter("id");
-	  String pwd = request.getParameter("pwd");
+	  String u_id = request.getParameter("u_id");
+	  String u_pwd = request.getParameter("u_pwd");
 	  String url = "login.jsp";
 	  String msg = "로그인에 실패 하였습니다.";
 	  
 	  /* ② MemberMgr의 lginMember 호출. 입력하세요 */
-	 	  boolean result = mMgr.loginMember(id, pwd);
+	 	  boolean result = mMgr.loginMember(u_id, u_pwd);
 	  
 	  if(result){
-	    session.setAttribute("idKey",id);
+	    session.setAttribute("idKey",u_id);
 	    msg = "로그인에 성공 하였습니다.";
 	  }
 %>

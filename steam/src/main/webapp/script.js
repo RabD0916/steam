@@ -1,12 +1,12 @@
 function inputCheck(){
-	if(document.regFrm.id.value==""){
+	if(document.regFrm.u_id.value==""){
 		alert("아이디를 입력해주세요.");
-		document.regFrm.id.focus();
+		document.regFrm.u_id.focus();
 		return;
 	}
-	if(document.regFrm.pwd.value==""){
+	if(document.regFrm.u_pwd.value==""){
 		alert("비밀번호를 입력해주세요.");
-		document.regFrm.pwd.focus();
+		document.regFrm.u_pwd.focus();
 		return;
 	}
 	if(document.regFrm.repwd.value==""){
@@ -14,29 +14,29 @@ function inputCheck(){
 		document.regFrm.repwd.focus();
 		return;
 	}
-	if(document.regFrm.pwd.value != document.regFrm.repwd.value){
+	if(document.regFrm.u_pwd.value != document.regFrm.repwd.value){
 		alert("비밀번호가 일치하지 않습니다.");
 		document.regFrm.repwd.value="";
 		document.regFrm.repwd.focus();
 		return;
 	}
-	if(document.regFrm.name.value==""){
+	if(document.regFrm.u_name.value==""){
 		alert("이름을 입력해 주세요.");
-		document.regFrm.name.focus();
+		document.regFrm.u_name.focus();
 		return;
 	}
-	if(document.regFrm.birthday.value==""){
-		alert("생년월일을 입력해 주세요.");
-		document.regFrm.birthday.focus();
+	if(document.regFrm.u_phone.value==""){
+		alert("휴대번호 입력해 주세요.");
+		document.regFrm.u_phone.focus();
 		return;
 	}
-	if(document.regFrm.email.value==""){
+	if(document.regFrm.u_email.value==""){
 		alert("이메일을 입력해 주세요.");
-		document.regFrm.email.focus();
+		document.regFrm.u_email.focus();
 		return;
 	}
 	/*이메일 형식 검사 코드*/
-    var str=document.regFrm.email.value;	   
+    var str=document.regFrm.u_email.value;	   
     var atPos = str.indexOf('@');
     var atLastPos = str.lastIndexOf('@');
     var dotPos = str.indexOf('.'); 
@@ -48,7 +48,7 @@ function inputCheck(){
 	   && atPos + 1 < dotPos && dotPos + 1 < eMailSize);
     else {
           alert('E-mail주소 형식이 잘못되었습니다.\n\r다시 입력해 주세요!');
-	      document.regFrm.email.focus();
+	      document.regFrm.u_email.focus();
 		  return;
     }
    	
